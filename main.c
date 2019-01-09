@@ -56,7 +56,7 @@ int main(){
 		
 		t1 = mytimer();
 		/*mmmult(rows1,rows2,cols1,cols2,matrix1,matrix2,matrix_out);*/
-		matmult_nat(rows1,cols2,cols1,matrix1,matrix2,matrix_out);
+		matmult_nkm(rows1,cols2,cols1,matrix1,matrix2,matrix_out);
 		t2 = mytimer();
 		
 
