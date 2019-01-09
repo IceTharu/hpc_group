@@ -6,6 +6,7 @@
 
 #include "datatools.h"		/* helper functions	        */
 #include "mmmult.h"		/* my matrix add fucntion	*/
+#include "matmult_nat.h"
 
 #define NREPEAT 100		/* repeat count for the experiment loop */
 
@@ -53,7 +54,8 @@ int main(){
 		clock_t t1, t2;
 		
 		t1 = mytimer();
-		mmmult(rows1,rows2,cols1,cols2,matrix1,matrix2,matrix_out);
+		/*mmmult(rows1,rows2,cols1,cols2,matrix1,matrix2,matrix_out);*/
+		matmult_nat(rows1,cols2,cols1,matrix1,matrix2,matrix_out);
 		t2 = mytimer();
 		
 
