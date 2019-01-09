@@ -1,0 +1,6 @@
+#ifndef __MATVECMULT_H
+#define __MATVECMULT_H
+
+void matvecmult(int m, int n, double **A, double **B, double **C);
+
+#endif
