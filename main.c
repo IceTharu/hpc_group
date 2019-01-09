@@ -6,7 +6,8 @@
 
 #include "datatools.h"		/* helper functions	        */
 #include "mmmult.h"		/* my matrix add fucntion	*/
-#include "matmult_nat.h"
+
+#include "libmatmult.h"
 
 #define NREPEAT 100		/* repeat count for the experiment loop */
 
@@ -62,7 +63,7 @@ int main(){
 		
 		clock_t t1_blas, t2_blas;
 		t1_blas = mytimer();
-		cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, rows1, cols2, cols1, 1, *matrix1, cols1, *matrix2, cols2, 0, *matrix_out, cols2);
+		matmult_lib(rows1, cols2, cols1, matrix1, matrix2, matrix_out);
 		t2_blas = mytimer();
 		
 		

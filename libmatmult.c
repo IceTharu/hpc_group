@@ -15,6 +15,7 @@ void matmult_nat(int rows1,int cols2,int cols1,double** matrix1,double** matrix2
 }
 
 void matmult_lib(int rows1,int cols2,int cols1,double** matrix1,double** matrix2,double** matrix_out){
+
 	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, rows1, cols2, cols1, 1, *matrix1, cols1, *matrix2, cols2, 0, *matrix_out, cols2);
 }
 

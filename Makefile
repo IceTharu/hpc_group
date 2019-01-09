@@ -1,4 +1,4 @@
-SRCS	= main.c datatools.c mmmult.c matmult_nat.c
+SRCS	= main.c datatools.c mmmult.c matmult_nat.c libmatmult.c
 OBJS	= $(SRCS:.c=.o)
 TARGET	= mmmult.$(CC)
 
