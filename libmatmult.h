@@ -17,4 +17,6 @@ void matmult_nkm(int rows1,int cols2,int cols1,double** matrix1,double** matrix2
 void matmult_nmk(int rows1,int cols2,int cols1,double** matrix1,double** matrix2,double** matrix_out);
 
 void matmult_knm(int rows1,int cols2,int cols1,double** matrix1,double** matrix2,double** matrix_out);
+
+void matmult_blk(int m, int n, int k, double** matrix1, double** matrix2, double** matrix_out, int step);
 #endif
