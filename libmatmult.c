@@ -109,29 +109,28 @@ void matmult_nkm(int m,int n,int k,double** matrix1,double** matrix2,double** ma
 
 void matmult_blk(int m, int n, int k, double** matrix1, double** matrix2, double** matrix_out, int step){
 
-
-	int i_reach;
-	int j_reach;
-	int z_reach;
-
-	i_reach = step * (n / step);
-	j_reach = step * (m / step);
-	z_reach = step * (k / step);
+	int i_start;
+	int j_start;
+	int z_start;
 	
-	/* Main loop for computing blocked multiplication:*/
-	for(int i_step = 0; i_step < n; i_step += step){
+	i_start = step * (m / step);
+	j_start = step * (n / step);
+	z_start = step * (k / step);
+
+
+	for(int i_step = 0; i_step < m; i_step += step){
 		
-		for(int j_step = 0; j_step < m; j_step += step){
+		for(int j_step = 0; j_step < n; j_step += step){
 			
 			for(int z_step = 0; z_step < k; z_step += step){
 			
-				for(int i = i_step; i < min(i_step + step, n); i++){
+				for(int i = i_step; i < min(i_step + step, m); i++){
 					
-					for(int j = j_step; j < min(j_step + step, m); j++){
+					for(int j = j_step; j < min(j_step + step, n); j++){
 						
 						for(int z = z_step; z < min(z_step + step, k); z++){
 
-
+							printf("%d %d %d\n",i,j,z);
 							matrix_out[i][j] = matrix_out[i][j] + matrix1[i][z] * matrix2[z][j];
 
 
@@ -141,16 +140,6 @@ void matmult_blk(int m, int n, int k, double** matrix1, double** matrix2, double
 				}
 			}
 		}
-	}
-
-
-	/*Loop for computing remaining multiplications:*/
-	for(int i = i_reach; i < n; i++){
-		for(int j = j_reach; j < m; j++){
-			for(int z = z_reach; z < k; z++){
-				matrix_out[i][j] = matrix_out[i][j] + matrix1[i][z] * matrix2[z][j];
-			}
-		}	
 	}
 }
 
